@@ -1,9 +1,31 @@
-import React from 'react'
+import SearchForm from "@/components/SearchForm";
+import { auth } from "@/auth";
 
-type Props = {}
+export default async function Home({
+  searchParams,
+}: {
+  searchParams: Promise<{ query?: string }>;
+}) {
+  const query = (await searchParams).query;
+  const params = { search: query || null };
 
-export default function Home({}: Props) {
+  const session = await auth();
+
   return (
-    <div>Home</div>
-  )
+    <>
+      <section className="pink_container">
+        <h1 className="heading">
+          Pitch Your Startup, <br />
+          Connect With Entrepreneurs
+        </h1>
+
+        <p className="sub-heading !max-w-3xl">
+          Submit Ideas, Vote on Pitches, and Get Noticed in Virtual
+          Competitions.
+        </p>
+
+        <SearchForm query={query} />
+      </section>
+    </>
+  );
 }
