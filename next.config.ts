@@ -12,14 +12,10 @@ const nextConfig: NextConfig = {
     dangerouslyAllowSVG: true,
     remotePatterns: [
       {
-        protocol: "https",
-        hostname: "*",
+        protocol: 'https',
+        hostname: 'placehold.co',
       },
     ],
-  },
-  experimental: {
-    ppr: "incremental",
-    after: true,
   },
   devIndicators: {
     appIsrStatus: true,
@@ -67,3 +63,7 @@ const nextConfig: NextConfig = {
 //   // https://vercel.com/docs/cron-jobs
 //   automaticVercelMonitors: true,
 // });
+
+
+
+export default nextConfig;
